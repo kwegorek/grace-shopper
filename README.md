@@ -1,6 +1,6 @@
-# E-Shop
+# Online Store
 
-Online Shop made with Ract, Node, Express.js and PostgreSQL. Implementation of main features of small e-commerce store. 
+made with Ract, Node, Express.js and PostgreSQL. Implementation of main features of small e-commerce store. 
 
 ## Setup
 To use this application, you'll need to take the following steps:
