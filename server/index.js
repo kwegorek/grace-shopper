@@ -7,7 +7,7 @@ const passport = require('passport')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 const db = require('./db')
 const sessionStore = new SequelizeStore({db})
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 5000
 const app = express()
 const socketio = require('socket.io')
 module.exports = app
@@ -26,10 +26,9 @@ if (process.env.NODE_ENV === 'test') {
  * keys as environment variables, so that they can still be read by the
  * Node process on process.env
  */
-if (process.env.NODE_ENV !== 'production') require('../secrets')
-
-// passport registration
-passport.serializeUser((user, done) => done(null, user.id))
+if (process.env.NODE_ENV !== 'production')
+  // passport registration
+  passport.serializeUser((user, done) => done(null, user.id))
 
 passport.deserializeUser(async (id, done) => {
   try {
@@ -105,10 +104,10 @@ const startListening = () => {
   require('./socket')(io)
 }
 
-const syncDb = () => db.sync()
+const syncDb = () => (console.log(''), console.log(db.sync()))
 
 async function bootApp() {
-  await sessionStore.sync()
+  // await sessionStore.sync()
   await syncDb()
   await createApp()
   await startListening()
@@ -120,5 +119,5 @@ async function bootApp() {
 if (require.main === module) {
   bootApp()
 } else {
-  createApp()
+  bootApp()
 }

@@ -6,6 +6,11 @@ module.exports = {
     '@babel/polyfill', // enables async-await
     './client/index.js'
   ],
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  },
   output: {
     path: __dirname,
     filename: './public/bundle.js'
@@ -13,7 +18,6 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx']
   },
-  devtool: 'source-map',
   watchOptions: {
     ignored: /node_modules/
   },
