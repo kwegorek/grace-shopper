@@ -1,18 +1,13 @@
 const Sequelize = require('sequelize')
 const pkg = require('../../package.json')
 
-const databaseName = 'shopper'
+const databaseName = 'etc'
 
 const db = new Sequelize(
   process.env.DATABASE_URL || `postgres://localhost:5432/${databaseName}`,
   {
     logging: false,
-    dialectOptions: {
-      ssl: {
-        require: process.env.DATABASE_URL ? true : false,
-        rejectUnauthorized: false
-      }
-    }
+    ssl: {rejectUnauthorized: false, require: true}
   }
 )
 module.exports = db
