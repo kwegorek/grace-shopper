@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "Some boilerplate code to get you started - get shakin'!",
   "engines": {
-    "node": "13.0.9"
+    "node": "12.18.1"
   },
   "main": "index.js",
   "scripts": {
@@ -50,7 +50,7 @@
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
     "passport-google-oauth": "^2.0.0",
-    "pg": "8.0.3",
+    "pg": "8.2.1",
     "pg-hstore": "^2.3.3",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
